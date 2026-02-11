@@ -17,7 +17,7 @@ For example:
 We have included an additional python script which, on input the integers $n,m,q,p$ as above and additionally $k, \ell$ and $b_i$, returns the corresponding complexity. This should be used, for example, to verify that the parameter choices
 - $(n, m, q, k, p, \ell, b_i) = (860, 78, 16, 6, 32, 14, [4, 4, 4, 4, 4, 4])$ for MAYO SLI
 - $(n, m, q, k, p, \ell, b_i) = (840, 100, 7, 4, 59, 13 , [3, 7, 7, 7])$ for QR-UOV SLI
-- 
+
 satisfy the constraints of the optimisation problem and yield the bit complexities claimed in the paper.
 
 For example:
