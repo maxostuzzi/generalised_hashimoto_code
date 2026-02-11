@@ -29,7 +29,7 @@ def mq_estimate(n_, m_, q):
     except Exception as e:
         print(n_)
         print(m_)
-        # print(f"Warning: MQEstimator failed for (q={q}, m={m_}, n={n_}): {e}", file=sys.stderr)
+        print(f"Warning: MQEstimator failed for (q={q}, m={m_}, n={n_}): {e}", file=sys.stderr)
         return math.inf
 
 def eval_complexity(n,m,q,k,l,bs):
@@ -73,23 +73,18 @@ def main():
     n, m, q, k, l, bs = args.n, args.m, args.q, args.k, args.l, args.bs
     
     B = sum(bs)
-    print((m - B - k) * (B + l))
-    print(n - (m - B - k))
-    print(sum(bs[j] * (m - sum(bs[i] for i in range(j, len(bs))) - k) for j in range(len(bs))))
-    print(n-m)
 
     if sum(bs)+l+k>m:
-        print('Too many structurally')
+        print('Structurally not allowed.')
         exit()
     feasible = filter(n, m, k, l, bs)
     if feasible == 0:
-        print('Too many linear')
+        print('Too much linearisation.')
         exit()
     elif feasible == 1:
-        print('Too many')
+        print('Does not satisfy the constraints')
         exit()
     else:
-        print('Good')
         print(f'Time Complexity: {eval_complexity(n,m,q,k,l,bs)}')
 
 if __name__ == "__main__":
