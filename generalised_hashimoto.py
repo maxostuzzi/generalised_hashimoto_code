@@ -103,7 +103,7 @@ def objective_f(n,m,q,k,l,bs):
         costs[B + l] = 1
     else:
         costs[B + l] = mq_estimate_time(q, B + l, B + l)
-    Bs = [sum(bs[i:]) for i in range(len(bs))]
+    Bs = [sum(bs[:i]) for i in range(len(bs))]
     for Bi in Bs:
         if Bi in [0,1,2]:
             costs[Bi] = 1
@@ -113,7 +113,7 @@ def objective_f(n,m,q,k,l,bs):
         costs['over'] = 1
     else:
         costs['over'] = mq_estimate_time(q, m - B - l, m - B - k - l)
-    return math.log2((m - B - l) * 2**costs[B+l] + sum((B - Bs[i]) * 2**costs[Bs[i]] for i in range(1,len(bs))) + q**k * (2**costs['over'] + sum(2**costs[b] for b in bs)))
+    return math.log2((m - B - k) * 2**costs[B+l] + sum((m - Bs[i] - k) * 2**costs[Bs[i]] for i in range(0,len(bs) - 1)) + q**k * (2**costs['over'] + sum(2**costs[b] for b in bs)))
 
 
 def tuples_sum_leq(m_kl: int, p: int) -> Iterator[List[int]]:

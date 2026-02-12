@@ -54,7 +54,7 @@ def eval_complexity(n,m,q,k,l,bs):
         costs['over'] = 1
     else:
         costs['over'] = mq_estimate(m - B - k - l, m - B - l, q)
-    return math.log2((m - B - l) * 2**costs[B+l] + sum((B - Bs[i]) * 2**costs[Bs[i]] for i in range(1,len(bs))) + q**k * (2**costs['over'] + sum(2**costs[b] for b in bs)))
+    return math.log2((m - B - k) * 2**costs[B+l] + sum((m - Bs[i] - k) * 2**costs[Bs[i]] for i in range(0,len(bs) - 1)) + q**k * (2**costs['over'] + sum(2**costs[b] for b in bs)))
 
 
 def parse_args():
