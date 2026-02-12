@@ -12,7 +12,7 @@ def filter(n, m, k, l, b):
     B = sum(b)
     if n - (m - B - k) < (m - B - k) * (B + l):
         return 0
-    if n - m < sum(b[j] * (m - sum(b[i] for i in range(j, len(b))) - k) for j in range(len(b))):
+    if n - m < sum(b[j] * (m - sum(b[i] for i in range(0, j + 1)) - k) for j in range(len(b))):
         return 1
     return None
 
