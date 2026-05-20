@@ -1,4 +1,4 @@
-# Generalised Hashimoto's Algorithm
+# Pseudo-Oil Subspaces and the Geometry of Underdetermined MQ Solving
 
 This is the discrete optimisation script for computing the optimal parameters $\ell$ and $b_i$ from the paper.
 We make use of the Cryptogaphic Estimator library, which can be obtained from https://github.com/Crypto-TII/CryptographicEstimators .
